@@ -1,0 +1,2 @@
+module Master::RolesHelper
+end

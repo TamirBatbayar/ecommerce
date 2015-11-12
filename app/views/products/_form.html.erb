@@ -6,7 +6,7 @@
     <%= f.input :price %>
     <%= f.input :amount %>
     <%= f.input :detail %>
-    <%= f.association :user %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <div class="form-actions">

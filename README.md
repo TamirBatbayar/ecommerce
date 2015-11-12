@@ -1,3 +1,5 @@
+Replace upmin with Custom admin page.
+
 Ecommerce
 ================
 

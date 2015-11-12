@@ -15,8 +15,12 @@
     <main role="main">
        <%= render 'layouts/messages' %>
        <% if user_signed_in? %>
-       <p>Current user_id:<%= current_user.id %>, Username:  <%= current_user.name %></p>
+       <p>Current user_id:<%= current_user.id %>, Username:  <%= current_user.name %> Role: <%= current_user.role %></p>
+         <% if current_user.admin? %>
+           <h1>Welcome! Admin san</h1>
+         <% end %>
        <% end %>
+
        <%= yield %>
     </main>
   </body>

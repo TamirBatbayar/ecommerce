@@ -18,9 +18,8 @@ gem 'devise'
 gem 'high_voltage'
 gem 'mysql2', '~> 0.3.18'
 gem 'puma'
-gem 'pundit'
 gem 'simple_form'
-gem 'upmin-admin'
+
 group :development do
   gem 'foreman'
   gem 'guard-bundler'

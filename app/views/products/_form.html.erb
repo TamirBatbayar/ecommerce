@@ -6,6 +6,7 @@
     <%= f.input :price %>
     <%= f.input :amount %>
     <%= f.input :detail %>
+    <%= f.select :category, Master::Category.all.map { |category| [category.name, category.id] } %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
 

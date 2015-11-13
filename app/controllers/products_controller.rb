@@ -3,8 +3,18 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   # GET /products
   # GET /products.json
+
+  # def search_by_category
+  #   @products = Product.where(id: params[:category])
+  #   redirect_to index
+  # end
+
   def index
-    @products = Product.all
+    if params[:category]
+      @products = Product.where(category: params[:category]).all
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1
@@ -25,7 +35,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    
+
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -40,7 +50,6 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    raise params[:product][:user_id].to_yaml  # Later make it so that it can be automatically select "current_user.id"
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -70,6 +79,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :amount, :detail, :user_id)
+      params.require(:product).permit(:name, :price, :amount, :detail, :user_id, :category)
     end
 end

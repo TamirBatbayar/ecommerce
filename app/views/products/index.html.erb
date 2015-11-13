@@ -2,39 +2,54 @@
 
 <h1>Listing Products</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Amount</th>
-      <th>Detail</th>
-      <th>Owner id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-3">
+      <div class="list-group">
+          <% categories = category %>
+          <% categories.each do |category| %>
+              <%= link_to category.name, search_by_category_path(:category => category.id), :class => "list-group-item" %>
+          <% end %>
+      </div>
+  </div>
+  
+  <div class="col-md-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Detail</th>
+          <th>Owner id</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.amount %></td>
-        <td><%= product.detail %></td>
-        <td><%= product.user.id %></td>
-        <td><%= link_to 'Show', product %></td>
-        <% if current_user.id == product.user.id %>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% else %>
-          <td>You're not allowed to edit</td>
-          <td>You're not allowed to delete</td>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.price %></td>
+            <td><%= product.amount %></td>
+            <td><%= category_return(product.category).name %></td>
+            <td><%= product.detail %></td>
+            <td><%= product.user.id %></td>
+            <td><%= link_to 'Show', product %></td>
+            <% if current_user.id == product.user.id %>
+              <td><%= link_to 'Edit', edit_product_path(product) %></td>
+              <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% else %>
+              <td>You're not allowed to edit</td>
+              <td>You're not allowed to delete</td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Product', new_product_path %>
+    <%= link_to 'New Product', new_product_path %>
+  </div>
+</div>

@@ -8,6 +8,8 @@
     <%= f.input :detail %>
     <%= f.select :category, Master::Category.all.map { |category| [category.name, category.id] } %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label 'Picture' %>
+    <%= f.input :picture, as: :file %>
   </div>
 
   <div class="form-actions">

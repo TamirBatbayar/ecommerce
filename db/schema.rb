@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118210544) do
+ActiveRecord::Schema.define(version: 20151118210545) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -58,14 +58,18 @@ ActiveRecord::Schema.define(version: 20151118210544) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "price",      limit: 4
-    t.integer  "amount",     limit: 4
-    t.text     "detail",     limit: 65535
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "category",   limit: 4
+    t.string   "name",                 limit: 255
+    t.integer  "price",                limit: 4
+    t.integer  "amount",               limit: 4
+    t.text     "detail",               limit: 65535
+    t.integer  "user_id",              limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "category",             limit: 4
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size",    limit: 4
+    t.datetime "picture_updated_at"
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree

@@ -36,12 +36,14 @@
             <td><%= product.detail %></td>
             <td><%= product.user.id %></td>
             <td><%= link_to 'Show', product %></td>
-            <% if current_user.id == product.user.id %>
-              <td><%= link_to 'Edit', edit_product_path(product) %></td>
-              <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% else %>
-              <td>You're not allowed to edit</td>
-              <td>You're not allowed to delete</td>
+            <% if user_signed_in? %>
+              <% if current_user.id == product.user.id %>
+                <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td>You're not allowed to edit</td>
+                <td>You're not allowed to delete</td>
+              <% end %>
             <% end %>
           </tr>
         <% end %>

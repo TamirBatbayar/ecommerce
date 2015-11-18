@@ -10,7 +10,9 @@ feature 'Home page' do
   #   Then I see "Welcome"
   scenario 'visit the home page' do
     visit root_path
-    expect(page).to have_content 'Welcome'
+    expect(page).to have_content 'ホーム'
+    expect(page).to have_content 'メニュー'
+    expect(page).to have_content '商品'
   end
 
 end

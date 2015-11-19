@@ -9,6 +9,10 @@ gem 'jbuilder', '~> 2.0'
 # For content management
 gem "paperclip", "~> 4.3"
 gem 'ckeditor'
+gem 'will_paginate'#, '~> 3.0.6'
+gem 'pundit'
+
+
 group :development, :test do
   gem 'byebug'
 end

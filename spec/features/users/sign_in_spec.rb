@@ -13,6 +13,8 @@ feature 'Sign in', :devise do
     expect(page).to have_content I18n.t 'devise.failure.not_found_in_database', authentication_keys: 'email'
   end
 
+  # STARTUP!
+
   # Scenario: User can sign in with valid credentials
   #   Given I exist as a user
   #   And I am not signed in
@@ -34,6 +36,9 @@ feature 'Sign in', :devise do
     signin('invalid@email.com', user.password)
     expect(page).to have_content I18n.t 'devise.failure.not_found_in_database', authentication_keys: 'email'
   end
+
+# Entrepreneur = Success!!!!!
+
 
   # Scenario: User cannot sign in with wrong password
   #   Given I exist as a user

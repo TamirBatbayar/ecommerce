@@ -16,4 +16,5 @@ module ApplicationHelper
 		slides = Slide.all
 		return slides
 	end
+
 end

@@ -11,7 +11,15 @@ feature 'Sign in', :devise do
     expect(page).to have_content'ページ名'
   end
 
+  scenario 'Admin add pages' do
+  	Page_content = instance_double("PageContent")
+  	allow(Page_content).to receive_messages(
+    :name => "サービス",
+    :content => "サービスサービスサービスサービスサービスサービスサービスサービスサービスサービス")
 
+    expect(Page_content).to receive(:name => "Kiki",:content => "The conntent for Kiki")
+  	puts Page_content.inspect
+  end
 end
 
 

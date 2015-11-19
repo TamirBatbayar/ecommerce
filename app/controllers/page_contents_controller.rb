@@ -1,6 +1,6 @@
 class PageContentsController < ApplicationController
   before_action :set_page_content, only: [:show, :edit, :update, :destroy]
-
+  # before_action :authenticate_user!, except: [:show]
   # GET /page_contents
   # GET /page_contents.json
   def index

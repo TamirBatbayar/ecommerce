@@ -11,7 +11,7 @@ feature 'Home page' do
   scenario 'visit the home page' do
     visit root_path
     expect(page).to have_content 'ホーム'
-    expect(page).to have_content 'メニュー'
+    expect(page).to have_content 'food'
     expect(page).to have_content '商品'
   end
 

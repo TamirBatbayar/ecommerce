@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :slide do
-    name "MyString"
-description "MyString"
+    name "Name of Slide"
+	description "Description of Slide"
   end
 
 end

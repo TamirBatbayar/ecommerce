@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  
   # GET /products
   # GET /products.json
 
@@ -29,6 +30,8 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    authorize_owner(params[:id])
+
   end
 
   # POST /products
@@ -71,6 +74,16 @@ class ProductsController < ApplicationController
     end
   end
 
+    def authorize_owner(product_id)
+      if user_signed_in?
+        product_owner_id = Product.find(product_id).user_id
+        if product_owner_id != current_user.id
+          redirect_to products_path
+        end
+        # @products_owned = Product.where(:user_id => current_user.id)
+      end
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -81,4 +94,6 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :price, :amount, :detail, :user_id, :category, :picture)
     end
+
+
 end

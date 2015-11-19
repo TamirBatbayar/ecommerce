@@ -1,6 +1,7 @@
 class SlidesController < ApplicationController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
+  before_action :authorize_user_by_tamir
   # GET /slides
   # GET /slides.json
   def index
@@ -12,7 +13,7 @@ class SlidesController < ApplicationController
   def show
   end
 
-  # GET /slides/new
+  # GET /slides/new 
   def new
     @slide = Slide.new
   end
@@ -71,5 +72,11 @@ class SlidesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
       params.require(:slide).permit(:name, :description, :picture)
+    end
+
+    def authorize_user_by_tamir
+      if user_signed_in? && !current_user.admin?
+        redirect_to new_user_session_path
+      end
     end
 end

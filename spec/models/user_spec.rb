@@ -1,13 +1,15 @@
-describe User do
+	describe User do
 
-  before(:each) { @user = User.new(email: 'user@example.com') }
+  # before(:each) { @user = User.new(account: 'sumitomo123') }
+  let(:user) { FactoryGirl.create(:user) }
 
   subject { @user }
 
-  it { should respond_to(:email) }
+  it { should respond_to(:account) }
 
   it "#email returns a string" do
-    expect(@user.email).to match 'user@example.com'
+  	user.account = "sumitomo123"
+    expect(@user.account).to match 'sumitomo123'
   end
 
 end

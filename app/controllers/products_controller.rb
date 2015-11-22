@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
   # end
 
   def index
-
     if params[:category]
       @products = Product.where(category: params[:category]).all.paginate(:page => params[:page], :per_page => 6)
     else
@@ -22,7 +21,8 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    
+    # if 
+    # user_tracking = Tracking.new    
   end
 
   # GET /products/new

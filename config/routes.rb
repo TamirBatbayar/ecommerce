@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :trackings
-  resources :trackings
   resources :slides
   mount Ckeditor::Engine => '/ckeditor'
   resources :page_contents

@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>商品一覧</h1>
+<%= session.id %>
 
 <div class="row">
   <div class="col-md-2">
@@ -14,7 +15,7 @@
   
   <div class="col-md-10">
 <% if user_signed_in? %>
-    <%= link_to 'New Product', new_product_path %>
+    <%= link_to 'New Product', new_product_path, :class => "btn btn-lg btn-default" %>
 <% end %>
     <table class="table">
       <thead>

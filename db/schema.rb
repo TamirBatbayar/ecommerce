@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118210545) do
+ActiveRecord::Schema.define(version: 20151122124320) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -35,24 +35,9 @@ ActiveRecord::Schema.define(version: 20151118210545) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "master_roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "page_contents", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "pages", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "name_en",    limit: 255
-    t.text     "content",    limit: 65535
-    t.text     "content_en", limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -74,16 +59,6 @@ ActiveRecord::Schema.define(version: 20151118210545) do
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
-  create_table "services", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "name_en",         limit: 255
-    t.text     "description",     limit: 65535
-    t.text     "descpription_en", limit: 65535
-    t.integer  "price",           limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
   create_table "slides", force: :cascade do |t|
     t.string   "name",                 limit: 255
     t.string   "description",          limit: 255
@@ -93,6 +68,15 @@ ActiveRecord::Schema.define(version: 20151118210545) do
     t.string   "picture_content_type", limit: 255
     t.integer  "picture_file_size",    limit: 4
     t.datetime "picture_updated_at"
+  end
+
+  create_table "trackings", force: :cascade do |t|
+    t.string   "session_id", limit: 255
+    t.integer  "product_id", limit: 4
+    t.string   "page_name",  limit: 255
+    t.text     "detail",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @tracking.session_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @tracking.product_id %>
+</p>
+
+<p>
+  <strong>Page name:</strong>
+  <%= @tracking.page_name %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @tracking.detail %>
+</p>
+
+<%= link_to 'Edit', edit_tracking_path(@tracking) %> |
+<%= link_to 'Back', trackings_path %>

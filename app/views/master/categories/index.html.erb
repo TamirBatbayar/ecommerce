@@ -2,7 +2,7 @@
 
 <h1>Listing Master Categories</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,9 +14,9 @@
     <% @master_categories.each do |master_category| %>
       <tr>
         <td><%= master_category.name %></td>
-        <td><%= link_to 'Show', master_category %></td>
-        <td><%= link_to 'Edit', edit_master_category_path(master_category) %></td>
-        <td><%= link_to 'Destroy', master_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', master_category, :class => "btn btn-lg btn-default" %></td>
+        <td><%= link_to 'Edit', edit_master_category_path(master_category), :class => "btn btn-lg btn-default" %></td>
+        <td><%= link_to 'Destroy', master_category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-lg btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_master_category_path %>
+<%= link_to 'New Category', new_master_category_path, :class => "btn btn-lg btn-default" %>

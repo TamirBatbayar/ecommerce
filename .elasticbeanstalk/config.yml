@@ -1,0 +1,10 @@
+branch-defaults:
+  user-tracking:
+    environment: ecommerce-eb
+global:
+  application_name: ecommerce
+  default_ec2_keyname: tamir
+  default_platform: Ruby 2.2 (Puma)
+  default_region: ap-northeast-1
+  profile: eb-cli
+  sc: git

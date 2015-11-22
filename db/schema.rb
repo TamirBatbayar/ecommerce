@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20151122124320) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "master_roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "page_contents", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.text     "content",    limit: 65535

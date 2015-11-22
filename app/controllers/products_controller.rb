@@ -21,8 +21,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    # if 
-    # user_tracking = Tracking.new    
+    user_tracking = Tracking.new
+    user_tracking.session_id = session.id
+    user_tracking.product_id = params[:id]
+    user_tracking.save    
   end
 
   # GET /products/new

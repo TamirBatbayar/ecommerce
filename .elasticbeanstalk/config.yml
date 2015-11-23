@@ -1,4 +1,6 @@
 branch-defaults:
+  master:
+    environment: null
   user-tracking:
     environment: ecommerce-eb
 global:
